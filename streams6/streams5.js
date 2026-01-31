@@ -4,7 +4,6 @@ var path = require('path');
 var streams2 = require('../streams2/streams2');
 var streams3 = require('../streams4/streams3');
 var streams4 = require('../streams5/streams4');
-var util = require('util');
 
 var sourceFolders = ['src'];
 var resourceFolders = [];
@@ -98,7 +97,7 @@ function getCoreDetails(corePortalPreModuleNames, appServerLibModuleNames, folde
 
 	var moduleDetailsArray = [moduleOverview, moduleIncludeFolders, moduleExcludeFolders, moduleDependencies];
 
-	return moduleDetailsArray.reduce(util._extend, {type: 'portal'});
+	return moduleDetailsArray.reduce(Object.assign, {type: 'portal'});
 };
 
 function getCoreFolders() {
@@ -178,7 +177,7 @@ function getPluginDetails(folder) {
 
 	var moduleDetailsArray = [moduleOverview, moduleIncludeFolders, moduleExcludeFolders, moduleDependencies];
 
-	return moduleDetailsArray.reduce(util._extend, {type: 'plugins-sdk'});
+	return moduleDetailsArray.reduce(Object.assign, {type: 'plugins-sdk'});
 };
 
 function getPluginFolder(pluginSDKRoot, pluginName) {

@@ -3,7 +3,6 @@ var highland = require('highland');
 var path = require('path');
 var streams2 = require('../streams2/streams2');
 var streams3 = require('../streams4/streams3');
-var util = require('util');
 
 var getFilePath = streams2.getFilePath;
 var getModuleExcludeFolders = streams3.getModuleExcludeFolders;
@@ -302,7 +301,7 @@ function getModuleDetails(folder) {
 
 	var moduleDetailsArray = [moduleOverview, moduleVersion, moduleIncludeFolders, moduleExcludeFolders, moduleDependencies];
 
-	return moduleDetailsArray.reduce(util._extend, {});
+	return moduleDetailsArray.reduce(Object.assign, {});
 };
 
 function getProjectDependency(matchResult) {

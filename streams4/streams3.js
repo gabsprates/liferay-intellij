@@ -1,7 +1,6 @@
 var fs = require('fs');
 var path = require('path');
 var streams2 = require('../streams2/streams2');
-var util = require('util');
 
 var getFilePath = streams2.getFilePath;
 var isDirectory = streams2.isDirectory;
@@ -71,7 +70,7 @@ function getModuleDetails(folder) {
 
 	var moduleDetailsArray = [moduleOverview, moduleVersion, moduleIncludeFolders, moduleExcludeFolders, moduleDependencies];
 
-	return moduleDetailsArray.reduce(util._extend, {type: 'module'});
+	return moduleDetailsArray.reduce(Object.assign, {type: 'module'});
 };
 
 function getModuleExcludeFolders(folder, moduleIncludeFolders) {
